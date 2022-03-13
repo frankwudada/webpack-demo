@@ -1,29 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const base = require('./webpack.config.base.js')
 
 module.exports = {
+  ...base,
   mode: 'development',
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: '写代码啦',
-      template: 'src/assets/index.html'
-    })
-  ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader"],  // 开发环境：速度更快，不需要生成文件
       },
     ],
   },
-  output: {
-    filename: 'index.[contenthash].js'
-  },
 };
-
