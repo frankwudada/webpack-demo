@@ -4,8 +4,9 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
-  output: {
-    filename: 'index.[contenthash].js'
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -20,6 +21,9 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  output: {
+    filename: 'index.[contenthash].js'
   },
 };
 
