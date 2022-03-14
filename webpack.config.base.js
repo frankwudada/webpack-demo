@@ -11,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(gif|png|jpg|svg)$/,
+        use: ['file-loader',],
+      },  // 会自动添加 hash；本质是把文件变成文件路径
+      {
         test: /\.styl$/i,
         use: [
           "style-loader",

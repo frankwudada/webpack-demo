@@ -1,2 +1,4 @@
 import x from "./x.js"
-console.log(x);
+import jpg from "./assets/1.jpg"
+const div = document.getElementById("app")
+div.innerHTML = `<img src = "${jpg}">`
